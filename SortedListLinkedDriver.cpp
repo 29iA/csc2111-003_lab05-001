@@ -10,37 +10,37 @@ using namespace std;
 
 void addCDs(ListArray<CD>* list, ListBox<CD>* lb)
 {
-   ListArrayIterator<CD>* iter = list->iterator();
+	ListArrayIterator<CD>* iter = list->iterator();
 
-   //DO THIS
-   //iterate over and add the cds to the list box (use lb->addItem)
-
-
+	//DO THIS
+	//iterate over and add the cds to the list box (use lb->addItem)
 
 
-   delete iter;
+
+
+	delete iter;
 }
 
 void deleteCDs(ListArray<CD>* list)
 {
-   ListArrayIterator<CD>* iter = list->iterator();
+	ListArrayIterator<CD>* iter = list->iterator();
 
-   //DO THIS  
-   //iterate over and delete the cds
-
-
+	//DO THIS  
+	//iterate over and delete the cds
 
 
-   delete iter;
+
+
+	delete iter;
 }
 
 int main(int argc, char* argv[])
 {
-   ListArray<CD>* cds = CD::readCDs("cds.txt");
-   //DO THIS
-   //create and test the sorted linked list 
+	ListArray<CD>* cds = CD::readCDs("cds.txt");
+	//DO THIS
+	//create and test the sorted linked list 
 
 
 
-   return 0;
+	return 0;
 }
