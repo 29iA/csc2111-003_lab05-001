@@ -110,6 +110,7 @@ NextNode<T>** SortedListLinked<T>::find(T* item)
 		prev = curr;
 		curr = getNext();
 	}
+   }
 	
 	//could simply return prev and compute curr, but prev might be null
 	//this way results in somewhat simpler code in add and remove
@@ -147,8 +148,9 @@ void SortedListLinked<T>::add(T* item)
 	else	 //general add
 	{
 		
-
-
+       NextNode<T>* curr = prev->getNext();
+       prev->setNext(node);
+       node->setNext(curr);
 
 	}
 
