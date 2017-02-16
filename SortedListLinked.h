@@ -105,7 +105,8 @@ NextNode<T>** SortedListLinked<T>::find(T* item)
    //DO THIS
    //loop to find the correct location to insert/remove item
    
-   while ((curr != NULL) && (int compare = (*compare_items)(item, curr->getNext()))
+   //has something todo with compare_items pointer function
+   while ((curr != NULL) && (compare_items(item, curr->getItem()) >= 0))
    {
 	   prev = curr;
 	   curr = curr->getNext();
@@ -142,18 +143,17 @@ void SortedListLinked<T>::add(T* item)
 
    //DO THIS
    //adding to the top of the list (check prev)
-   if (           )
+   if (prev == head)
    {
-
-
-
-
+	   //node->setNext(head);
+	   head = node;
    }
    else    //general add
    {
-
-
-
+	   //NextNode<T>* prev = find(index - 1);
+       NextNode<T>* curr = prev->getNext();
+       prev->setNext(node);
+       node->setNext(curr);
 
    }
 
