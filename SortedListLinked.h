@@ -104,14 +104,14 @@ NextNode<T>** SortedListLinked<T>::find(T* item)
 
    //DO THIS
    //loop to find the correct location to insert/remove item
-
-
-
-
-
-
-
-
+   
+   while ((curr != NULL) && (int compare = (*compare_items)(item, curr->getNext()))
+   {
+	   prev = curr;
+	   curr = curr->getNext();
+   }
+   
+   //TODO
 
    //could simply return prev and compute curr, but prev might be null
    //this way results in somewhat simpler code in add and remove
