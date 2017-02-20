@@ -8,15 +8,16 @@ using CSC2110::ListArrayIterator;
 #include <iostream>
 using namespace std;
 
-void addCDs(ListArray<CD>* list, ListBox<CD>* lb)
+void addCDs(ListArray<CD>* list, SortedListLinked<CD>* sll)
 {
 	ListArrayIterator<CD>* iter = list->iterator();
 
 	//DO THIS
 	//iterate over and add the cds to the list box (use lb->addItem)
-
-
-
+	while (iter->hasNext())
+	{
+		sll->add(iter->next());
+	}
 
 	delete iter;
 }
@@ -27,9 +28,10 @@ void deleteCDs(ListArray<CD>* list)
 
 	//DO THIS  
 	//iterate over and delete the cds
-
-
-
+	while (iter->hasNext())
+	{
+		delete iter->next();
+	}
 
 	delete iter;
 }
@@ -39,8 +41,25 @@ int main(int argc, char* argv[])
 	ListArray<CD>* cds = CD::readCDs("cds.txt");
 	//DO THIS
 	//create and test the sorted linked list 
+	SortedListLinked<CD>* sll = new SortedListLinked<CD>(&CD::compare_items);
+	
+	addCDs(cds, sll);
+	
+	ListLinkedIterator<CD>* iter = sll->iterator();
 
-
+	while(iter->hasNext())
+	{
+		CD* cd = iter->next();
+		String* key = cd->getKey();
+		key->displayString();
+		cout << endl;
+	}
+	delete iter;
+	
+	deleteCDs(cds);
+	
+	if(sll->isEmpty())
+		cout << "\n\nThe list is empty\n";
 
 	return 0;
 }
